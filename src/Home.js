@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { GetMoreNasaData, GetNasaData } from "./action/NasaDataAction";
 import Loader from "./Loader/Loader";
 
@@ -10,7 +10,7 @@ function Home() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(GetNasaData());
-  }, []);
+  }, [dispatch]);
   function LoadMoreNasaData() {
     dispatch(GetMoreNasaData());
   }
@@ -76,7 +76,7 @@ function Home() {
                   </b>
                   <i>
                     {KEY[i] === "url" ? (
-                      <a href={d} target="_blank">
+                      <a href={d}>
                         {String(d)}
                       </a>
                     ) : (
